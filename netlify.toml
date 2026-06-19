@@ -1,0 +1,13 @@
+# Configuração do Netlify para o site do vídeo da Copa do Mundo 2026
+# O site fica em Projeto_Copa_IA/site/ — publicamos a raiz inteira e
+# redirecionamos "/" para a pasta do site (assim as imagens em
+# Projeto_Copa_IA/04_Imagens continuam acessíveis via ../04_Imagens).
+
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/"
+  to = "/Projeto_Copa_IA/site/"
+  status = 302
+  force = true
