@@ -1,0 +1,11 @@
+# Sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Dependências (caso use no futuro)
+node_modules/
+
+# Arquivos temporários
+*.tmp
+*.log

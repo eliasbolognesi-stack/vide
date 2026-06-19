@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brasil 2026 — Vídeo da Copa com IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="canvas-wrap" id="player">
+    <canvas id="video" width="1920" height="1080"></canvas>
+    <div id="bigStatus" class="big-status">▶</div>
+
+    <div class="controls" id="controls">
+      <button id="playBtn" class="primary">▶ Reproduzir</button>
+      <button id="restartBtn" title="Reiniciar">⏮</button>
+      <button id="muteBtn" title="Música">🎵</button>
+      <div class="bar-wrap"><div id="bar" class="bar"></div></div>
+      <span id="clock" class="clock">0.0s / 60.0s</span>
+      <button id="exportBtn" class="export">🎬 Exportar</button>
+    </div>
+    <p id="exportNote" class="note"></p>
+  </div>
+
+  <!-- elementos ocultos usados pelo motor (não fazem parte da tela) -->
+  <div hidden aria-hidden="true">
+    <span id="sceneLabel"></span>
+    <label><input type="checkbox" id="narrChk" checked /></label>
+    <input id="cProjeto" type="text" value="Vídeo Copa do Mundo 2026 com IA" />
+    <input id="cN1" type="text" value="Elias" />
+    <input id="cN2" type="text" value="" />
+    <input id="cN3" type="text" value="" />
+    <input id="cTools" type="text" value="Leonardo.ai · Site Local (IA)" />
+    <input id="narrFile" type="file" accept="audio/*" />
+    <input id="musicFile" type="file" accept="audio/*" />
+  </div>
+
+  <audio id="narrAudio" crossorigin="anonymous"></audio>
+  <audio id="musicAudio" loop crossorigin="anonymous"></audio>
+  <script src="app.js"></script>
+</body>
+</html>

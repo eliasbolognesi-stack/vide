@@ -1,0 +1,40 @@
+:root{ --amarelo:#FFDF00; --verde:#009C3B; }
+*{ box-sizing:border-box; }
+html,body{ margin:0; height:100%; background:#000; overflow:hidden;
+  font-family:'Montserrat',system-ui,Arial,sans-serif; color:#fff; }
+body{ display:flex; align-items:center; justify-content:center; }
+
+/* o vídeo ocupa o máximo da tela mantendo 16:9 */
+.canvas-wrap{ position:relative; width:min(100vw, 177.7vh); aspect-ratio:16/9; background:#000;
+  box-shadow:0 0 60px rgba(0,0,0,.8); overflow:hidden; }
+canvas{ display:block; width:100%; height:100%; }
+
+/* botão grande central de play */
+.big-status{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-size:clamp(48px,9vw,120px); color:rgba(255,255,255,.92); cursor:pointer;
+  background:radial-gradient(circle at center, rgba(0,0,0,.25), rgba(0,0,0,.55));
+  transition:opacity .3s; text-shadow:0 4px 24px rgba(0,0,0,.6); }
+.big-status:hover{ color:#fff; }
+
+/* barra de controles discreta (aparece ao passar o mouse) */
+.controls{ position:absolute; left:0; right:0; bottom:0; display:flex; align-items:center; gap:10px;
+  padding:14px 18px; background:linear-gradient(0deg, rgba(0,0,0,.7), rgba(0,0,0,0));
+  opacity:0; transform:translateY(8px); transition:opacity .25s, transform .25s; }
+.canvas-wrap:hover .controls{ opacity:1; transform:none; }
+
+button{ cursor:pointer; border:0; border-radius:9px; padding:9px 14px; font-weight:700; font-size:14px;
+  background:rgba(255,255,255,.14); color:#fff; backdrop-filter:blur(4px); transition:background .2s, transform .05s; }
+button:hover{ background:rgba(255,255,255,.26); }
+button:active{ transform:translateY(1px); }
+button.primary{ background:var(--verde); }
+button.primary:hover{ background:#00b346; }
+button.export{ background:var(--amarelo); color:#11251a; }
+button.export:hover{ background:#ffe84d; }
+button:disabled{ opacity:.5; cursor:not-allowed; }
+
+.bar-wrap{ flex:1; height:6px; background:rgba(255,255,255,.2); border-radius:4px; overflow:hidden; }
+.bar{ width:0%; height:100%; background:linear-gradient(90deg,var(--verde),var(--amarelo)); transition:width .08s linear; }
+.clock{ font-variant-numeric:tabular-nums; font-size:13px; opacity:.85; min-width:104px; text-align:right; }
+
+.note{ position:absolute; left:0; right:0; top:14px; text-align:center; font-size:13px; margin:0;
+  color:var(--amarelo); text-shadow:0 2px 6px rgba(0,0,0,.8); pointer-events:none; }
